@@ -1,40 +1,81 @@
-function precioFinal (combo, cuotas){
-    let precio = 0;
-    switch (combo){
-        case 1:
-            precio = 1000;
-            break;
-        case 2:
-            precio = 600;
-            break;
-        case 3:
-            precio = 400;
-            break;
-    }
-    switch (cuotas){
-        case 1:
-            return precio - precio / 4;
-        case 2:
-            return precio;
-        case 3:
-            return precio + (precio / 2);
+class cliente {
+    constructor(nombre, telefono, direccion){
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 }
 
-let combo = parseInt(prompt("Ingrese el codigo del combo que desea adquirir:    Combo 1) central + 6 sensores de movimiento ($1000)    Combo 2) central + 3 sensores de movimiento ($600)   Combo 3) central + 2 sensores de movimiento ($400)"));
-while (combo != 1 && combo != 2 && combo != 3){
-    combo = parseInt(prompt("Por favor, ingrese nuevamente el codigo que desea adquirir:     Combo 1) central + 6 sensores de movimiento ($1000)    Combo 2) central + 3 sensores de movimiento ($600)   Combo 3) central + 2 sensores de movimiento ($400)"));
+let button = document.getElementById ("enviarInfo");
+button.addEventListener("click", cargarCliente);
+
+
+function cargarCliente () {
+    let nombre = document.getElementById("nombre").value;
+    let telefono = document.getElementById("telefono").value;
+    let direccion = document.getElementById("direccion").value;
+    let nuevoCliente = new cliente (nombre, telefono, direccion);
+    mostrarCliente (nuevoCliente);
+
 }
 
-let cuotas = parseInt(prompt("Ingrese el codigo de la forma de pago:     1) Efectivo (25% de descuento)   2) 3 cuotas sin interes    3) 6 cuotas con 50% de interes"));
-while (cuotas != 1 && cuotas != 2 && cuotas != 3){
-    cuotas = parseInt(prompt("Por favor, ingrese nuevamente el codigo de la forma de pago:    1) Efectivo (25% de descuento)   2) 3 cuotas sin interes    3) 6 cuotas con 50% de interes"));
+function mostrarCliente (cliente){
+    let formulario = document.getElementById("formulario");
+    formulario.innerHTML = "";
+    let nuevoContenido = document.createElement ("div");
+    nuevoContenido.innerHTML = `<h1> Bienvenido ${cliente.nombre}. Haga click en el boton para continuar su compra </h1> <button id="continuar"> Continue comprando </button>`;
+    formulario.appendChild(nuevoContenido);
+    let continuar = document.getElementById ("continuar");
+    continuar.addEventListener("click", conti);
+    function conti(){
+        formulario.innerHTML= "";
+        }
+    }
+
+let productos =[
+    {
+    id: 1,
+    nombre: "producto 1",
+    precio: 500,
+    imagen: "link",
+    },
+    {
+    id: 2,
+    nombre: "producto 2",
+    precio: 100,
+    imagen: "link",
+    },
+    {
+    id: 3,
+    nombre: "producto 3",
+    precio: 400,
+    imagen: "link",
+    },
+    {
+    id: 4,
+    nombre: "producto 4",
+    precio: 1000,
+    imagen: "link",
+    }
+]
+
+const cardsProductos = () =>{
+    let contenedor= document.getElementById ("contenedor");
+    productos.forEach((producto, indice)=>{
+        let card = document.createElement ("div");
+        card.classList.add("card", "col-sm-12", "col-lg-3");
+        card.innerHTML = `<img src="${producto.imagen}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">Precio: $${producto.precio}</p>
+        <a href="#" class="btn btn-primary" onClick="agregarAlcarrito()">Agregar al carrito</a>
+        </div>`
+        contenedor.appendChild(card);
+    });
+};
+
+cardsProductos();
+
+const agregarAlcarrito = () =>{
+    alert("Se agrego el producto al carrito")
 }
-alert(`Usted debera pagar un total de $ ${precioFinal(combo,cuotas)}`)
-
-
-/*
-alert("Ingrese el codigo de producto que desea comprar: 1-Camara     2-Alarma    3-Consola.    El precio de cada producto es:  1- $500      2-$200      3-$1000")
-let seleccionado = parseInt(prompt("Ingrese el codigo del producto"))
-let cobro = parseInt(prompt("Ingrese el metodo de pago: 1-efectivo (%15 de descuento)   2- 3 cuotas sin interes   3-6 cuotas con un interes del %54"))
-alert(producto(seleccionado))*/
