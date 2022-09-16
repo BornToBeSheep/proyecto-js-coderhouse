@@ -68,14 +68,46 @@ const cardsProductos = () =>{
         <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">Precio: $${producto.precio}</p>
-        <a href="#" class="btn btn-primary" onClick="agregarAlcarrito()">Agregar al carrito</a>
+        <a href="#" class="btn btn-primary" onClick="agregarAlcarrito(${indice})">Agregar al carrito</a>
         </div>`
         contenedor.appendChild(card);
     });
 };
 
 cardsProductos();
+let carrito = [];
+let carritoModal = document.getElementById ("carrito");
 
-const agregarAlcarrito = () =>{
-    alert("Se agrego el producto al carrito")
+const agregarAlcarrito = (indice) =>{
+    alert("Se agrego el producto al carrito");
+    /* Recorro el arraycarrito para retornar el indice del elemento que cumpla la condicion de que su id id del . En caso de no cumplirse la condicion retorna -1*/
+    /* Recorro el array carrito comparando el id de sus elementos con el id del producto seleccionado, de esta forma, puedo saber si el prod seleccionado esta o no esta en el carrito. En caso de no estarlo, findIndex retorna -1 */
+    const indiceCarrito = carrito.findIndex((elemento) =>{
+        return elemento.id === productos[indice].id;
+    });
+    if (indiceCarrito === -1){
+        productoAgregar = productos[indice];
+        productoAgregar.cant = 1;
+        carrito.push(productoAgregar);
+        crearCarrito();
+    }else {
+        carrito[indiceCarrito].cant += 1;
+        crearCarrito();
+    }
+}
+
+let total = 0;
+
+const crearCarrito = ()=>{
+    carritoModal.innerHTML = "";
+    carrito.forEach((producto)=>{
+        const item = document.createElement("div");
+        item.innerHTML = `<img src="${producto.imagen}" class="carrito-img-left" alt="...">
+        <div class="carrito-body">
+        <h5 class="carrito-title">${producto.nombre}</h5>
+        <p class="carrito-text">Precio: $${producto.precio}</p>
+        <p class ="carrito-cantidad">Cantidad: ${producto.cant}</p>
+        </div>`;
+        carritoModal.appendChild(item);
+    })
 }
