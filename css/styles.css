@@ -1,299 +1,16 @@
-.banner__content--index {
-  background-image: url(../recursos/banner/familia.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-  height: 50vw;
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 9fr 1fr 1fr  1fr;
-  grid-template-areas: "." "titulo" "subtitulo" "boton"; }
-  .banner__content--index .banner__title {
-    grid-area: titulo;
-    font-size: 6vw;
-    color: gold;
-    justify-self: center;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--index .banner__parrafo {
-    grid-area: subtitulo;
-    font-size: 4vw;
-    color: gold;
-    justify-self: center;
-    margin-left: 2vw;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--index .banner__button {
-    grid-area: boton;
-    background-color: black;
-    font-size: 2vw;
-    color: gold;
-    justify-self: center;
-    border: solid 2px gold;
-    width: fit-content;
-    height: fit-content;
-    padding: 1vw;
-    margin-bottom: 4vh; }
-
-.banner__content--nosotros {
-  background-image: url(../recursos/banner/annie-spratt-hCb3lIB8L8E-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  height: 50vw;
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 9fr 1fr 1fr  1fr;
-  grid-template-areas: "." "titulo" "subtitulo" "boton"; }
-  .banner__content--nosotros .banner__title {
-    grid-area: titulo;
-    font-size: 6vw;
-    color: gold;
-    justify-self: center;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--nosotros .banner__parrafo {
-    grid-area: subtitulo;
-    font-size: 4vw;
-    color: gold;
-    justify-self: center;
-    margin-left: 2vw;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--nosotros .banner__button {
-    grid-area: boton;
-    background-color: black;
-    font-size: 2vw;
-    color: gold;
-    justify-self: center;
-    border: solid 2px gold;
-    width: fit-content;
-    height: fit-content;
-    padding: 1vw;
-    margin-bottom: 4vh; }
-
-.banner__content--domiciliaria {
-  background-image: url(../recursos/banner/valentina-locatelli-P8bsrm8KbM0-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-  height: 50vw;
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 9fr 1fr 1fr  1fr;
-  grid-template-areas: "." "titulo" "subtitulo" "boton"; }
-  .banner__content--domiciliaria .banner__title {
-    grid-area: titulo;
-    font-size: 6vw;
-    color: gold;
-    justify-self: center;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--domiciliaria .banner__parrafo {
-    grid-area: subtitulo;
-    font-size: 4vw;
-    color: gold;
-    justify-self: center;
-    margin-left: 2vw;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--domiciliaria .banner__button {
-    grid-area: boton;
-    background-color: black;
-    font-size: 2vw;
-    color: gold;
-    justify-self: center;
-    border: solid 2px gold;
-    width: fit-content;
-    height: fit-content;
-    padding: 1vw;
-    margin-bottom: 4vh; }
-
-.banner__content--empresarial {
-  background-image: url(../recursos/banner/rohan-g-imwaY7KA9qs-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-  height: 50vw;
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 9fr 1fr 1fr  1fr;
-  grid-template-areas: "." "titulo" "subtitulo" "boton"; }
-  .banner__content--empresarial .banner__title {
-    grid-area: titulo;
-    font-size: 6vw;
-    color: gold;
-    justify-self: center;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--empresarial .banner__parrafo {
-    grid-area: subtitulo;
-    font-size: 4vw;
-    color: gold;
-    justify-self: center;
-    margin-left: 2vw;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--empresarial .banner__button {
-    grid-area: boton;
-    background-color: black;
-    font-size: 2vw;
-    color: gold;
-    justify-self: center;
-    border: solid 2px gold;
-    width: fit-content;
-    height: fit-content;
-    padding: 1vw;
-    margin-bottom: 4vh; }
-
-.banner__content--contacto {
-  background-image: url(../recursos/banner/pixasquare-4ojhpgKpS68-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: 70%;
-  height: 50vw;
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 9fr 1fr 1fr  1fr;
-  grid-template-areas: "." "titulo" "subtitulo" "boton"; }
-  .banner__content--contacto .banner__title {
-    grid-area: titulo;
-    font-size: 6vw;
-    color: gold;
-    justify-self: center;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--contacto .banner__parrafo {
-    grid-area: subtitulo;
-    font-size: 4vw;
-    color: gold;
-    justify-self: center;
-    margin-left: 2vw;
-    text-shadow: 5px 5px 4px black; }
-  .banner__content--contacto .banner__button {
-    grid-area: boton;
-    background-color: black;
-    font-size: 2vw;
-    color: gold;
-    justify-self: center;
-    border: solid 2px gold;
-    width: fit-content;
-    height: fit-content;
-    padding: 1vw;
-    margin-bottom: 4vh; }
-
-/*              SECTION CARDS           */
-.section__title {
-  text-shadow: 5px 5px 10px black;
-  border-bottom-left-radius: 12px;
-  font-size: 3vw; }
-
-.break-line {
-  border: 1px solid gold;
-  width: 30%;
-  box-shadow: 5px 5px 10px black; }
-
-.section__content .section__card {
-  transition: all 500ms ease-out;
-  box-shadow: 5px 5px 30px black; }
-  .section__content .section__card .section__img {
-    margin: 1vw;
-    width: 10vw; }
-  .section__content .section__card .card-title {
-    font-size: 3vw; }
-  .section__content .section__card .card-text {
-    font-size: 2vw; }
-
-.section__content .section__card:hover {
-  transform: scale(1.05);
-  opacity: 100%; }
-
-/*   -----------  SOBRE NOSOTROS   ------------   */
-.about__content {
-  background-color: #212529;
-  padding: 2vw; }
-  .about__content .about__article {
-    width: 80%;
-    margin: auto;
-    padding: 1vw;
-    background-color: aliceblue;
-    box-shadow: 5px 5px 15px black; }
-    .about__content .about__article .about__title {
-      font-size: 4vw; }
-    .about__content .about__article .about__text {
-      font-size: 2vw; }
-  .about__content .about__separator {
-    margin: 2vw;
-    display: grid;
-    grid-template-areas: ". image ." "line image line" ". image .";
-    grid-template-columns: 5.5fr 1fr 5.5fr; }
-    .about__content .about__separator .about__line {
-      grid-area: "line";
-      align-self: center;
-      border: 1px solid gold;
-      width: 90%;
-      height: 1px;
-      box-shadow: 5px 5px 3px black; }
-    .about__content .about__separator .about__image {
-      grid-area: "image";
-      height: 6vh;
-      justify-self: center; }
-
-.button__content img {
-  height: 5vw;
-  padding-top: 1vh; }
-
-.nav-pills {
-  --bs-nav-pills-link-active-bg: white; }
-
-.section__article {
-  background-color: #212529;
-  color: black;
-  font-size: 2rem;
-  padding: 1vw; }
-  .section__article .article__content {
-    text-align: center; }
-    .section__article .article__content .article__header .article__img {
-      width: 6vw;
-      margin: 1vw; }
-    .section__article .article__content .article__card {
-      background-color: white;
-      margin: 2vw;
-      padding: 1vw;
-      text-align: start; }
-      .section__article .article__content .article__card .article__subtitle {
-        font-size: 3vw;
-        border-bottom: 0.2vw solid gold; }
-      .section__article .article__content .article__card .article__parraf {
-        font-size: 2vw; }
-
-/*            FOOTER          */
-.footer__social {
-  background-color: #212529;
-  display: grid;
-  grid-template-areas: "list map" "modal modal";
-  align-content: space-between;
-  color: gold; }
-  .footer__social .footer__list {
-    grid-area: list;
-    justify-self: center; }
-    .footer__social .footer__list .footer__item {
-      list-style: none;
-      color: white; }
-      .footer__social .footer__list .footer__item a {
-        text-decoration: none;
-        color: gold; }
-  .footer__social .footer__modal {
-    grid-area: modal;
-    justify-self: center;
-    align-self: center;
-    text-align: center; }
-    .footer__social .footer__modal .footer__img {
-      height: 3vh;
-      justify-self: center;
-      margin: 1vh;
-      background-color: gold;
-      border-radius: 20%; }
-  .footer__social .footer__local {
-    grid-area: map;
-    justify-self: center; }
-
-* {
+*{
   margin: 0px;
   padding: 0px;
-  font-family: 'Teko', sans-serif; }
-
-@media (min-width: 390px) and (max-width: 992px) {
-  .footer__social {
-    grid-template-areas: "list" "modal" "map"; } }
+  box-sizing: border-box;
+}
+.contenedor{
+  display:flex ;
+  flex-direction: row;
+  background-color: aquamarine;
+}
+.card{
+  background-color: aquamarine;
+}
+.total{
+  background-color: antiquewhite;
+}

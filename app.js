@@ -15,11 +15,14 @@ function cargarCliente () {
     let telefono = document.getElementById("telefono").value;
     let direccion = document.getElementById("direccion").value;
     let nuevoCliente = new cliente (nombre, telefono, direccion);
-    mostrarCliente (nuevoCliente);
+    let enJSON = JSON.stringify(nuevoCliente);
+    localStorage.setItem("cliente", enJSON);
+    mostrarCliente (enJSON);
 
 }
 
-function mostrarCliente (cliente){
+function mostrarCliente (c){
+    let cliente = JSON.parse(c);
     let formulario = document.getElementById("formulario");
     formulario.innerHTML = "";
     let nuevoContenido = document.createElement ("div");
@@ -31,6 +34,8 @@ function mostrarCliente (cliente){
         formulario.innerHTML= "";
         }
     }
+
+
 
 let productos =[
     {
@@ -68,7 +73,7 @@ const cardsProductos = () =>{
         <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">Precio: $${producto.precio}</p>
-        <a href="#" class="btn btn-primary" onClick="agregarAlcarrito(${indice})">Agregar al carrito</a>
+        <a href="#" class="btn btn-primary" onClick="agregarAlcarrito(${indice})">Agregar al carrito</a> 
         </div>`
         contenedor.appendChild(card);
     });
@@ -80,34 +85,111 @@ let carritoModal = document.getElementById ("carrito");
 
 const agregarAlcarrito = (indice) =>{
     alert("Se agrego el producto al carrito");
-    /* Recorro el arraycarrito para retornar el indice del elemento que cumpla la condicion de que su id id del . En caso de no cumplirse la condicion retorna -1*/
     /* Recorro el array carrito comparando el id de sus elementos con el id del producto seleccionado, de esta forma, puedo saber si el prod seleccionado esta o no esta en el carrito. En caso de no estarlo, findIndex retorna -1 */
     const indiceCarrito = carrito.findIndex((elemento) =>{
         return elemento.id === productos[indice].id;
     });
+    /* si indiceCarrito es estrictamente igual a -1 quiere decir que el producto seleccionado no estaba dentro del carritob  */
     if (indiceCarrito === -1){
         productoAgregar = productos[indice];
         productoAgregar.cant = 1;
         carrito.push(productoAgregar);
-        crearCarrito();
+        crearCarrito(indice);
     }else {
         carrito[indiceCarrito].cant += 1;
-        crearCarrito();
+        crearCarrito(indice);
     }
 }
 
-let total = 0;
 
-const crearCarrito = ()=>{
+
+const crearCarrito = (indice)=>{
+    let total = 0;
     carritoModal.innerHTML = "";
     carrito.forEach((producto)=>{
+        total += producto.precio * producto.cant;
+        let subtotal = producto.precio * producto.cant;
         const item = document.createElement("div");
         item.innerHTML = `<img src="${producto.imagen}" class="carrito-img-left" alt="...">
         <div class="carrito-body">
         <h5 class="carrito-title">${producto.nombre}</h5>
         <p class="carrito-text">Precio: $${producto.precio}</p>
         <p class ="carrito-cantidad">Cantidad: ${producto.cant}</p>
+        <p>Subtotal: $${subtotal}</p>
+        <a href="#" class="btn btn-primary" onClick="eliminarDelCarrito(${indice})">Elimnar producto</a>
         </div>`;
         carritoModal.appendChild(item);
     })
+    const mostrarTotal = document.createElement("div");
+    mostrarTotal.classList.add("total")
+    mostrarTotal.innerHTML = `<p> Total: $${total}</p>`
+    carritoModal.appendChild(mostrarTotal);
 }
+
+/*
+const eliminarDelCarrito = (index) =>{
+    const item = carrito.find((producto) => producto.id === index);
+    const indice = carrito.indexOf(item);
+    carrito.splice(indice, 1);
+    console.log(indice);
+}
+*/
+console.log(carrito)
+
+
+
+
+/* //SECCION DESCUENTOS Y FORMAS DE PAGO
+
+let formasDePago = document.getElementById("formasDePago")
+
+let formasPago = [
+    {
+    Descripcion: "efectivo con 15% de descuento",
+    cant: 1
+    },
+    {
+    Descripcion: "3 cuotas sin interes",
+    cant: 3
+    },
+    {
+    Descripcion: "6 cuotas sin interes",
+    cant: 6
+    },
+    {
+    Descripcion: "12 cuotas con 30% de interes",
+    cant: 12
+    },
+    {
+    Descripcion: "18 cuotas con 60% de interes",
+    cant: 18
+    }
+];
+
+const opcionesPago = () =>{
+    formasPago.forEach ((forma) => {
+        const selector = document.createElement ("div")
+        selector.innerHTML = `<a id>${forma.Descripcion}</a>`
+        switch (forma.cant){
+            case 1:
+                selector.innerHTML= `<p>Total a pagar: $${total - (0.15 * total)}</p>`;
+                break;
+            case 3:
+                selector.innerHTML = `<p>Cada cuota seria de $${total / 3}</p>`;
+                break;
+            case 6:
+                selector.innerHTML = `<p>Cada cuota seria de $${total / 6}</p>`;
+                break;
+            case 12:
+                selector.innerHTML = `<p>Sobre un total de $${total + (total * 0.3)} cada cuota seria de $${(total+(total * 0.3))/12}</p>`;
+                break;
+            case 18:
+                selector.innerHTML = `<p>Sobre un total de $${total + (total * 0.6)} cada cuota seria de $${(total+(total * 0.6))/18}</p>`;
+                break;
+        }
+    })
+    formasDePago.appendChild(selector);
+}
+
+*/
+
